@@ -8,6 +8,19 @@
 	<string>Productivity</string>
 	<key>connections</key>
 	<dict>
+		<key>2D322937-63D9-414D-9DF1-43B111A418B1</key>
+		<array>
+			<dict>
+				<key>destinationuid</key>
+				<string>5B6D7651-559E-446F-BB8F-72B917A4498E</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+				<key>vitoclose</key>
+				<false/>
+			</dict>
+		</array>
 		<key>3F344FA3-078B-46D5-B12F-ED1D956922AC</key>
 		<array>
 			<dict>
@@ -26,6 +39,29 @@
 			<dict>
 				<key>destinationuid</key>
 				<string>EAFB8CB6-459C-49B0-965F-B666FD15A8D2</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+				<key>vitoclose</key>
+				<false/>
+			</dict>
+			<dict>
+				<key>destinationuid</key>
+				<string>6DE74268-E8CD-44E4-BC59-7170CB01EBEB</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+				<key>vitoclose</key>
+				<false/>
+			</dict>
+		</array>
+		<key>6DE74268-E8CD-44E4-BC59-7170CB01EBEB</key>
+		<array>
+			<dict>
+				<key>destinationuid</key>
+				<string>2D322937-63D9-414D-9DF1-43B111A418B1</string>
 				<key>modifiers</key>
 				<integer>0</integer>
 				<key>modifiersubtext</key>
@@ -58,6 +94,19 @@
 	<string>Android Development Utilities</string>
 	<key>objects</key>
 	<array>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>largetypetext</key>
+				<string>{query}</string>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.output.largetype</string>
+			<key>uid</key>
+			<string>D1D49F26-9C3F-4E7F-8F96-4511141D873E</string>
+			<key>version</key>
+			<integer>2</integer>
+		</dict>
 		<dict>
 			<key>config</key>
 			<dict>
@@ -96,19 +145,6 @@ fi</string>
 		<dict>
 			<key>config</key>
 			<dict>
-				<key>largetypetext</key>
-				<string>{query}</string>
-			</dict>
-			<key>type</key>
-			<string>alfred.workflow.output.largetype</string>
-			<key>uid</key>
-			<string>D1D49F26-9C3F-4E7F-8F96-4511141D873E</string>
-			<key>version</key>
-			<integer>2</integer>
-		</dict>
-		<dict>
-			<key>config</key>
-			<dict>
 				<key>inputstring</key>
 				<string>{query}</string>
 				<key>matchcasesensitive</key>
@@ -128,6 +164,42 @@ fi</string>
 		<dict>
 			<key>config</key>
 			<dict>
+				<key>largetypetext</key>
+				<string>{query}</string>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.output.largetype</string>
+			<key>uid</key>
+			<string>5B6D7651-559E-446F-BB8F-72B917A4498E</string>
+			<key>version</key>
+			<integer>2</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>concurrently</key>
+				<false/>
+				<key>escaping</key>
+				<integer>102</integer>
+				<key>script</key>
+				<string>bash -c "./$1"</string>
+				<key>scriptargtype</key>
+				<integer>1</integer>
+				<key>scriptfile</key>
+				<string></string>
+				<key>type</key>
+				<integer>0</integer>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.action.script</string>
+			<key>uid</key>
+			<string>2D322937-63D9-414D-9DF1-43B111A418B1</string>
+			<key>version</key>
+			<integer>2</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
 				<key>argumenttrimmode</key>
 				<integer>0</integer>
 				<key>argumenttype</key>
@@ -135,7 +207,7 @@ fi</string>
 				<key>fixedorder</key>
 				<false/>
 				<key>items</key>
-				<string>[{"title":"Copy Last Screenshot","arg":"exec copy_screenshot","subtitle":"from Android device using ADB"}]</string>
+				<string>[{"title":"Copy Last Screenshot","arg":"exec copy_screenshot","subtitle":"from Android device using ADB"},{"title":"Screen Stays On","arg":"adb shell settings put global stay_on_while_plugged_in 3","subtitle":"Keep screen stays on when USB is connected"},{"title":"Allow Screen Off","arg":"adb shell settings put global stay_on_while_plugged_in 0","subtitle":"Clear keep screen stays on when USB is connected"}]</string>
 				<key>keyword</key>
 				<string>and</string>
 				<key>runningsubtext</key>
@@ -154,11 +226,37 @@ fi</string>
 			<key>version</key>
 			<integer>1</integer>
 		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>inputstring</key>
+				<string>{query}</string>
+				<key>matchcasesensitive</key>
+				<false/>
+				<key>matchmode</key>
+				<integer>2</integer>
+				<key>matchstring</key>
+				<string>adb shell .*</string>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.utility.filter</string>
+			<key>uid</key>
+			<string>6DE74268-E8CD-44E4-BC59-7170CB01EBEB</string>
+			<key>version</key>
+			<integer>1</integer>
+		</dict>
 	</array>
 	<key>readme</key>
 	<string></string>
 	<key>uidata</key>
 	<dict>
+		<key>2D322937-63D9-414D-9DF1-43B111A418B1</key>
+		<dict>
+			<key>xpos</key>
+			<integer>770</integer>
+			<key>ypos</key>
+			<integer>330</integer>
+		</dict>
 		<key>3F344FA3-078B-46D5-B12F-ED1D956922AC</key>
 		<dict>
 			<key>xpos</key>
@@ -172,6 +270,20 @@ fi</string>
 			<integer>440</integer>
 			<key>ypos</key>
 			<integer>330</integer>
+		</dict>
+		<key>5B6D7651-559E-446F-BB8F-72B917A4498E</key>
+		<dict>
+			<key>xpos</key>
+			<integer>980</integer>
+			<key>ypos</key>
+			<integer>330</integer>
+		</dict>
+		<key>6DE74268-E8CD-44E4-BC59-7170CB01EBEB</key>
+		<dict>
+			<key>xpos</key>
+			<integer>670</integer>
+			<key>ypos</key>
+			<integer>360</integer>
 		</dict>
 		<key>D1D49F26-9C3F-4E7F-8F96-4511141D873E</key>
 		<dict>
