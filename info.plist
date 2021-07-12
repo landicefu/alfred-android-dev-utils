@@ -1,0 +1,194 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>bundleid</key>
+	<string>tw.lifehackers.alfred.android.devutilities</string>
+	<key>category</key>
+	<string>Productivity</string>
+	<key>connections</key>
+	<dict>
+		<key>3F344FA3-078B-46D5-B12F-ED1D956922AC</key>
+		<array>
+			<dict>
+				<key>destinationuid</key>
+				<string>D1D49F26-9C3F-4E7F-8F96-4511141D873E</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+				<key>vitoclose</key>
+				<false/>
+			</dict>
+		</array>
+		<key>4B9609B1-13E0-434D-AC1C-BD1592088E96</key>
+		<array>
+			<dict>
+				<key>destinationuid</key>
+				<string>EAFB8CB6-459C-49B0-965F-B666FD15A8D2</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+				<key>vitoclose</key>
+				<false/>
+			</dict>
+		</array>
+		<key>EAFB8CB6-459C-49B0-965F-B666FD15A8D2</key>
+		<array>
+			<dict>
+				<key>destinationuid</key>
+				<string>3F344FA3-078B-46D5-B12F-ED1D956922AC</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+				<key>vitoclose</key>
+				<false/>
+			</dict>
+		</array>
+	</dict>
+	<key>createdby</key>
+	<string>Landice</string>
+	<key>description</key>
+	<string></string>
+	<key>disabled</key>
+	<false/>
+	<key>name</key>
+	<string>Android Development Utilities</string>
+	<key>objects</key>
+	<array>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>concurrently</key>
+				<false/>
+				<key>escaping</key>
+				<integer>102</integer>
+				<key>script</key>
+				<string>tmp_file=".tmp_screenshot_file.png"
+
+./adb shell screencap -p "/sdcard/$tmp_file"
+./adb pull "/sdcard/$tmp_file" &amp;&gt; /dev/null
+./adb shell rm "/sdcard/$tmp_file" &amp;&gt; /dev/null
+
+if test -f "$tmp_file" ; then
+	osascript -e "set the clipboard to (read (\"$tmp_file\") as TIFF picture)"
+	rm -rf "$tmp_file"
+	echo "Screenshot Copied"
+else
+	echo "something wrong"
+fi</string>
+				<key>scriptargtype</key>
+				<integer>1</integer>
+				<key>scriptfile</key>
+				<string></string>
+				<key>type</key>
+				<integer>0</integer>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.action.script</string>
+			<key>uid</key>
+			<string>3F344FA3-078B-46D5-B12F-ED1D956922AC</string>
+			<key>version</key>
+			<integer>2</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>largetypetext</key>
+				<string>{query}</string>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.output.largetype</string>
+			<key>uid</key>
+			<string>D1D49F26-9C3F-4E7F-8F96-4511141D873E</string>
+			<key>version</key>
+			<integer>2</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>inputstring</key>
+				<string>{query}</string>
+				<key>matchcasesensitive</key>
+				<true/>
+				<key>matchmode</key>
+				<integer>0</integer>
+				<key>matchstring</key>
+				<string>exec copy_screenshot</string>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.utility.filter</string>
+			<key>uid</key>
+			<string>EAFB8CB6-459C-49B0-965F-B666FD15A8D2</string>
+			<key>version</key>
+			<integer>1</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>argumenttrimmode</key>
+				<integer>0</integer>
+				<key>argumenttype</key>
+				<integer>1</integer>
+				<key>fixedorder</key>
+				<false/>
+				<key>items</key>
+				<string>[{"title":"Copy Last Screenshot","arg":"exec copy_screenshot","subtitle":"from Android device using ADB"}]</string>
+				<key>keyword</key>
+				<string>and</string>
+				<key>runningsubtext</key>
+				<string></string>
+				<key>subtext</key>
+				<string></string>
+				<key>title</key>
+				<string></string>
+				<key>withspace</key>
+				<true/>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.input.listfilter</string>
+			<key>uid</key>
+			<string>4B9609B1-13E0-434D-AC1C-BD1592088E96</string>
+			<key>version</key>
+			<integer>1</integer>
+		</dict>
+	</array>
+	<key>readme</key>
+	<string></string>
+	<key>uidata</key>
+	<dict>
+		<key>3F344FA3-078B-46D5-B12F-ED1D956922AC</key>
+		<dict>
+			<key>xpos</key>
+			<integer>780</integer>
+			<key>ypos</key>
+			<integer>140</integer>
+		</dict>
+		<key>4B9609B1-13E0-434D-AC1C-BD1592088E96</key>
+		<dict>
+			<key>xpos</key>
+			<integer>440</integer>
+			<key>ypos</key>
+			<integer>330</integer>
+		</dict>
+		<key>D1D49F26-9C3F-4E7F-8F96-4511141D873E</key>
+		<dict>
+			<key>xpos</key>
+			<integer>980</integer>
+			<key>ypos</key>
+			<integer>140</integer>
+		</dict>
+		<key>EAFB8CB6-459C-49B0-965F-B666FD15A8D2</key>
+		<dict>
+			<key>xpos</key>
+			<integer>670</integer>
+			<key>ypos</key>
+			<integer>170</integer>
+		</dict>
+	</dict>
+	<key>webaddress</key>
+	<string></string>
+</dict>
+</plist>
